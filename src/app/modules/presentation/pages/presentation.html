@@ -1,6 +1,6 @@
-<section class="relative min-h-screen flex align-items-center justify-content-center overflow-hidden p-4 surface-50">
+<section class="min-h-screen flex align-items-center justify-content-center overflow-hidden p-4 surface-50">
     <div
-        class="glass-card z-2 relative w-full max-w-50rem p-5 md:p-8 flex flex-column align-items-center text-center border-round-3xl shadow-4">
+        class="glass-card z-2 relative w-full max-w-50rem p-5 md:p-8 flex flex-column align-items-center text-center border-round-3xl">
         <p-tag value="About Me" [rounded]="true"
             styleClass="mb-4 uppercase text-sm font-semibold tracking-wide bg-primary-100 text-primary-700"></p-tag>
         <h1 class="text-5xl md:text-7xl font-bold line-height-2 m-0 mb-4 text-900">
@@ -13,9 +13,10 @@
         </p>
 
         <div class="flex flex-wrap justify-content-center gap-3">
-            <p-button label="Explore My Work" icon="pi pi-compass" [rounded]="true" size="large" />
+            <p-button label="Explore My Work" icon="pi pi-compass" [rounded]="true" size="large"
+                (onClick)="scrollTo('projects')" />
             <p-button label="Get in Touch" icon="pi pi-envelope" severity="secondary" [outlined]="true" [rounded]="true"
-                size="large" />
+                size="large" (onClick)="scrollTo('contact')" />
         </div>
     </div>
 

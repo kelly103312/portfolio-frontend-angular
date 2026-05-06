@@ -5,4 +5,5 @@ export interface Formation {
     period: string;
     description?: string;
     icon?: string;
+    type: 'academic' | 'course';
 }

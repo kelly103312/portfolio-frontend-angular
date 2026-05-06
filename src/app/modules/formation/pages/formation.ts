@@ -4,7 +4,7 @@ import { TimelineModule } from 'primeng/timeline';
 import { CardModule } from 'primeng/card';
 import { Formation } from '../domain/models/formation.model';
 import { FormationService } from '../domain/services/formation.service';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Component({
     selector: 'app-formation-page',
@@ -15,9 +15,15 @@ import { Observable } from 'rxjs';
 })
 export class FormationPage implements OnInit {
     private formationService = inject(FormationService);
-    formations$!: Observable<Formation[]>;
+    academicFormations$!: Observable<Formation[]>;
+    courseFormations$!: Observable<Formation[]>;
 
     ngOnInit(): void {
-        this.formations$ = this.formationService.getFormations();
+        this.academicFormations$ = this.formationService.getFormations().pipe(
+            map(formations => formations.filter(f => f.type === 'academic'))
+        );
+        this.courseFormations$ = this.formationService.getFormations().pipe(
+            map(formations => formations.filter(f => f.type === 'course'))
+        );
     }
 }

@@ -20,21 +20,21 @@ export class ContactPage {
     socials: SocialLink[] = [
         {
             label: 'LinkedIn',
-            url: 'https://www.linkedin.com/in/tu-perfil/',
+            url: 'https://www.linkedin.com/in/kelly-quintana-157380143/',
             icon: 'pi pi-linkedin',
             username: '/in/kelly-quintana'
         },
         {
             label: 'GitHub',
-            url: 'https://github.com/tu-usuario',
+            url: 'https://github.com/kelly103312',
             icon: 'pi pi-github',
-            username: '@kelly-quintana'
+            username: '@kelly103312'
         },
         {
             label: 'Email',
-            url: 'mailto:tu-email@gmail.com',
+            url: 'mailto:kelly.quintana.v@gmail.com',
             icon: 'pi pi-envelope',
-            username: 'tu-email@gmail.com'
+            username: 'kelly.quintana.v@gmail.com'
         }
     ];
 

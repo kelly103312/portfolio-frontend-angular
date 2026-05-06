@@ -9,9 +9,10 @@
 
         <div class="flex flex-wrap justify-content-center gap-4">
             <div *ngFor="let social of socials"
-                class="social-card glass-card border-round-3xl p-5 flex flex-column align-items-center gap-3 cursor-pointer shadow-3"
+                class="border-round-3xl p-5 flex flex-column align-items-center gap-3 cursor-pointer shadow-4"
                 (click)="open(social.url)">
-                <div class="flex align-items-center justify-content-center w-5rem h-5rem border-circle bg-primary-500 text-white shadow-3">
+                <div
+                    class="flex align-items-center justify-content-center w-5rem h-5rem border-circle bg-primary-500 text-white shadow-3">
                     <i [class]="social.icon + ' text-4xl'"></i>
                 </div>
                 <h3 class="text-xl font-bold text-900 m-0">{{ social.label }}</h3>

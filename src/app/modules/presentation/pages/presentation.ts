@@ -10,11 +10,7 @@ import { TagModule } from 'primeng/tag';
     styleUrl: './presentation.css'
 })
 export class PresentationPage {
-    exploreMyWork() {
-        console.log('Explore My Work');
-    }
-
-    getInTouch() {
-        console.log('Get in Touch');
+    scrollTo(elementId: string) {
+        document.getElementById(elementId)?.scrollIntoView({ behavior: 'smooth' });
     }
 }

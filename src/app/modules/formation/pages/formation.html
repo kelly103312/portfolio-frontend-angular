@@ -1,31 +1,54 @@
 <section class="py-6 px-4 md:px-6 lg:px-8 surface-50">
-    <div class="max-w-4xl mx-auto">
+    <div class="max-w-7xl mx-auto">
         <div class="text-center mb-6">
-            <h2 class="text-4xl md:text-5xl font-bold text-900 mb-3">Formation</h2>
+            <h2 class="text-4xl md:text-5xl font-bold text-900 mb-3">Formación</h2>
             <p class="text-xl text-600 max-w-30rem mx-auto">
-                My academic background and professional certifications.
+                Mi trayectoria académica y certificaciones profesionales.
             </p>
         </div>
 
-        <p-timeline *ngIf="formations$ | async as formations"
-            [value]="formations"
-            layout="vertical"
-            align="alternate">
-
-            <ng-template pTemplate="marker" let-item>
-                <span class="flex w-3rem h-3rem align-items-center justify-content-center border-circle bg-primary-500 text-white shadow-3">
-                    <i [class]="item.icon ?? 'pi pi-star'"></i>
-                </span>
-            </ng-template>
-
-            <ng-template pTemplate="content" let-item>
-                <div class="glass-card border-round-2xl p-4 shadow-3 mb-4">
-                    <span class="text-primary-500 font-semibold text-sm uppercase">{{ item.period }}</span>
-                    <h3 class="text-xl font-bold text-900 m-0 mt-1 mb-1">{{ item.degree }}</h3>
-                    <p class="text-600 font-medium m-0 mb-2">{{ item.institution }}</p>
-                    <p class="text-600 line-height-3 m-0" *ngIf="item.description">{{ item.description }}</p>
+        <div class="flex flex-column gap-6 lg:gap-8">
+            <div class="w-full">
+                <div class="flex align-items-center mb-4">
+                    <i class="pi pi-graduation-cap text-3xl text-primary-500 mr-3"></i>
+                    <h3 class="text-2xl font-bold text-900 m-0">Educación Universitaria</h3>
                 </div>
-            </ng-template>
-        </p-timeline>
+                
+                <div class="flex flex-column gap-4" *ngIf="academicFormations$ | async as academic">
+                    <div *ngFor="let item of academic" class=" border-round-2xl p-4 shadow-3 flex align-items-start gap-4">
+                        <span class="flex w-3rem h-3rem align-items-center justify-content-center border-circle bg-primary-500 text-white shadow-3 flex-shrink-0">
+                            <i [class]="item.icon ?? 'pi pi-star'"></i>
+                        </span>
+                        <div>
+                            <span class="text-primary-500 font-semibold text-sm uppercase">{{ item.period }}</span>
+                            <h3 class="text-xl font-bold text-900 m-0 mt-1 mb-1">{{ item.degree }}</h3>
+                            <p class="text-600 font-medium m-0 mb-2">{{ item.institution }}</p>
+                            <p class="text-600 line-height-3 m-0" *ngIf="item.description">{{ item.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full">
+                <div class="flex align-items-center mb-4">
+                    <i class="pi pi-graduation-cap text-3xl text-primary-500 mr-3"></i>
+                    <h3 class="text-2xl font-bold text-900 m-0">Cursos y Certificaciones</h3>
+                </div>
+
+                <div class="flex flex-column gap-4" *ngIf="courseFormations$ | async as courses">
+                    <div *ngFor="let item of courses" class=" border-round-2xl p-4 shadow-3 flex align-items-start gap-4">
+                        <span class="flex w-3rem h-3rem align-items-center justify-content-center border-circle bg-primary-500 text-white shadow-3 flex-shrink-0">
+                            <i [class]="item.icon ?? 'pi pi-star'"></i>
+                        </span>
+                        <div>
+                            <span class="text-primary-500 font-semibold text-sm uppercase">{{ item.period }}</span>
+                            <h3 class="text-xl font-bold text-900 m-0 mt-1 mb-1">{{ item.degree }}</h3>
+                            <p class="text-600 font-medium m-0 mb-2">{{ item.institution }}</p>
+                            <p class="text-600 line-height-3 m-0" *ngIf="item.description">{{ item.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
