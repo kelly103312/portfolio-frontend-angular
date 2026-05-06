@@ -1,0 +1,26 @@
+<section class="py-6 px-4 md:px-6 lg:px-8 surface-50">
+    <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-900 mb-3">Let's Connect</h2>
+            <p class="text-xl text-600 max-w-30rem mx-auto">
+                Find me on these platforms — I'm always open to new opportunities and collaborations.
+            </p>
+        </div>
+
+        <div class="flex flex-wrap justify-content-center gap-4">
+            <div *ngFor="let social of socials"
+                class="social-card glass-card border-round-3xl p-5 flex flex-column align-items-center gap-3 cursor-pointer shadow-3"
+                (click)="open(social.url)">
+                <div class="flex align-items-center justify-content-center w-5rem h-5rem border-circle bg-primary-500 text-white shadow-3">
+                    <i [class]="social.icon + ' text-4xl'"></i>
+                </div>
+                <h3 class="text-xl font-bold text-900 m-0">{{ social.label }}</h3>
+                <span class="text-600 text-sm">{{ social.username }}</span>
+                <p-button [label]="'Visit ' + social.label" icon="pi pi-external-link"
+                    [rounded]="true" severity="secondary" [outlined]="true" size="small"
+                    (onClick)="open(social.url)">
+                </p-button>
+            </div>
+        </div>
+    </div>
+</section>

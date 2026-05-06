@@ -1,0 +1,35 @@
+<p-card
+    styleClass="h-full flex flex-column shadow-3 hover:shadow-6 transition-duration-300 transition-all border-round-2xl overflow-hidden glass-card-solid">
+    <ng-template pTemplate="header">
+        <div class="h-12rem w-full bg-primary-100 flex align-items-center justify-content-center relative overflow-hidden"
+            *ngIf="!project.imageUrl">
+            <i class="pi pi-image text-primary-300 text-6xl"></i>
+        </div>
+        <img *ngIf="project.imageUrl" [src]="project.imageUrl" [alt]="project.title"
+            class="w-full h-12rem object-cover" />
+    </ng-template>
+
+    <ng-template pTemplate="title">
+        <h3 class="text-xl font-bold m-0 text-900 line-height-2">{{ project.title }}</h3>
+    </ng-template>
+
+    <ng-template pTemplate="subtitle">
+        <div class="flex flex-wrap gap-2 mt-2">
+            <p-tag *ngFor="let tech of project.technologies" [value]="tech" severity="secondary"
+                [rounded]="true"></p-tag>
+        </div>
+    </ng-template>
+
+    <div class="text-600 line-height-3 mt-3 mb-4 flex-grow-1">
+        {{ project.description }}
+    </div>
+
+    <ng-template pTemplate="footer">
+        <div class="flex gap-2 justify-content-between mt-auto pt-3 border-top-1 border-200">
+            <p-button *ngIf="project.repoUrl" label="Code" icon="pi pi-github" severity="secondary" [outlined]="true"
+                size="small" [rounded]="true" styleClass="w-full"></p-button>
+            <p-button *ngIf="project.liveUrl" label="Live Demo" icon="pi pi-external-link" size="small" [rounded]="true"
+                styleClass="w-full"></p-button>
+        </div>
+    </ng-template>
+</p-card>

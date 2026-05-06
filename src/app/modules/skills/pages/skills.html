@@ -1,0 +1,14 @@
+﻿<section class="py-6 px-4 md:px-6 lg:px-8 surface-50">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-900 mb-3">Skills</h2>
+            <p class="text-xl text-600 max-w-30rem mx-auto">
+                Technologies and tools that I have used in my projects
+            </p>
+        </div>
+
+        <div class="flex flex-wrap gap-3 justify-content-center" *ngIf="skills$ | async as skills">
+            <p-tag *ngFor="let skill of skills" [value]="skill.title" severity="info" [rounded]="true"></p-tag>
+        </div>
+    </div>
+</section>

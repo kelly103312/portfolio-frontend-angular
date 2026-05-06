@@ -1,0 +1,17 @@
+<section class="py-6 px-4 md:px-6 lg:px-8 surface-50">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-900 mb-3">Featured Projects</h2>
+            <p class="text-xl text-600 max-w-30rem mx-auto">
+                A selection of my best work, demonstrating my focus on clean architecture, beautiful UI, and scalable
+                functionality.
+            </p>
+        </div>
+
+        <div class="grid" *ngIf="projects$ | async as projects">
+            <div class="col-12 md:col-6 lg:col-4 p-3" *ngFor="let project of projects">
+                <app-project-card [project]="project"></app-project-card>
+            </div>
+        </div>
+    </div>
+</section>
