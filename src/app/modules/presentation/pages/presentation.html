@@ -1,28 +1,26 @@
-<section class="min-h-screen flex align-items-center justify-content-center overflow-hidden p-4 surface-50">
+<section
+    class="min-h-screen flex flex-column lg:flex-row align-items-start justify-content-between overflow-hidden p-4 lg:p-8 lg:pt-8 surface-50 gap-4">
     <div
-        class="glass-card z-2 relative w-full max-w-50rem p-5 md:p-8 flex flex-column align-items-center text-center border-round-3xl">
+        class="glass-card z-2 relative w-full max-w-40rem p-5 md:p-8 flex flex-column align-items-start text-left border-round-3xl">
         <p-tag value="About Me" [rounded]="true"
             styleClass="mb-4 uppercase text-sm font-semibold tracking-wide bg-primary-100 text-primary-700"></p-tag>
-        <h1 class="text-5xl md:text-7xl font-bold line-height-2 m-0 mb-4 text-900">
+        <h1 class="md:text-6xl font-bold line-height-2 m-0 mb-4 text-900">
             Hello! I'm Kelly Quintana<br />
-            <span class="text-primary-500">A Software Engineer</span>
+            <span class="text-primary-500">A Software Developer</span>
         </h1>
         <p class="text-xl line-height-3 text-600 m-0 mb-5 max-w-30rem">
-            I create elegant, scalable, and premium web experiences using Angular.
-            Passionate about Clean Architecture and stunning modern designs.
+            Building solid and well-structured solutions, with a strong focus on software architecture.
+            Creating scalable, modern, and functional applications that balance technical quality and user experience.
         </p>
 
-        <div class="flex flex-wrap justify-content-center gap-3">
+        <div class="flex flex-wrap justify-content-start gap-3">
             <p-button label="Explore My Work" icon="pi pi-compass" [rounded]="true" size="large"
                 (onClick)="scrollTo('projects')" />
             <p-button label="Get in Touch" icon="pi pi-envelope" severity="secondary" [outlined]="true" [rounded]="true"
                 size="large" (onClick)="scrollTo('contact')" />
         </div>
     </div>
-
-    <div class="animated-background">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
+    <div class="w-full lg:w-10 mt-4 lg:mt-0 flex justify-content-center align-items-center">
+        <app-interactive-cube class="block w-full"></app-interactive-cube>
     </div>
 </section>

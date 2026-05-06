@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { TagModule } from 'primeng/tag';
+import { InteractiveCubeComponent } from '../components/interactive-cube/interactive-cube.component';
 
 @Component({
     selector: 'app-presentation-page',
     standalone: true,
-    imports: [ButtonModule, TagModule],
+    imports: [ButtonModule, TagModule, InteractiveCubeComponent],
     templateUrl: './presentation.html',
     styleUrl: './presentation.css'
 })
