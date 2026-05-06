@@ -1,0 +1,28 @@
+<section class="py-6 px-4 md:px-6 lg:px-8  surface-50">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-900 mb-3">Experiencia Laboral</h2>
+            <p class="text-xl text-600 max-w-30rem mx-auto">
+                Mi trayectoria profesional y los roles que he desempeñado.
+            </p>
+        </div>
+
+        <div class="flex flex-column gap-6 lg:gap-8">
+            <div class="w-full">
+                <div class="flex flex-column gap-4" *ngIf="experiences$ | async as experiences">
+                    <div *ngFor="let item of experiences" class="p-4 flex align-items-start gap-4  border-round-2xl shadow-4 ">
+                        <span class="flex w-3rem h-3rem align-items-center justify-content-center border-circle bg-primary-500 text-white shadow-3 flex-shrink-0">
+                            <i [class]="item.icon ?? 'pi pi-briefcase'"></i>
+                        </span>
+                        <div>
+                            <span class="text-primary-500 font-semibold text-sm uppercase">{{ item.period }}</span>
+                            <h3 class="text-xl font-bold text-900 m-0 mt-1 mb-1">{{ item.position }}</h3>
+                            <p class="text-600 font-medium m-0 mb-2">{{ item.company }}</p>
+                            <p class="text-600 line-height-3 m-0" *ngIf="item.description">{{ item.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
