@@ -1,4 +1,4 @@
-﻿import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SkillService } from '../domain/services/skill.service';
 import { Skill } from '../domain/models/skill.model';
