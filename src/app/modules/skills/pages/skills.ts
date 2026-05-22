@@ -3,20 +3,32 @@ import { CommonModule } from '@angular/common';
 import { SkillService } from '../domain/services/skill.service';
 import { Skill } from '../domain/models/skill.model';
 import { TagModule } from 'primeng/tag';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
+import { CardModule } from 'primeng/card';
 
 @Component({
     selector: 'app-skills-page',
     standalone: true,
-    imports: [CommonModule, TagModule],
+    imports: [CommonModule, TagModule, CardModule],
     templateUrl: './skills.html',
     styleUrl: './skills.css'
 })
 export class SkillsPage implements OnInit {
     private skillService = inject(SkillService);
-    skills$!: Observable<Skill[]>;
+    skillsBackend$!: Observable<Skill[]>;
+    skillsFrontend$!: Observable<Skill[]>;
+    skillsTools$!: Observable<Skill[]>;
 
     ngOnInit(): void {
-        this.skills$ = this.skillService.getSkills();
+        this.skillsBackend$ = this.skillService.getSkills().pipe(
+            map(skills => skills.filter(s => s.category === 'Backend'))
+        );
+        this.skillsFrontend$ = this.skillService.getSkills().pipe(
+            map(skills => skills.filter(s => s.category === 'Frontend'))
+        );
+        this.skillsTools$ = this.skillService.getSkills().pipe(
+            map(skills => skills.filter(s => s.category === 'Tools'))
+        );
+
     }
 }

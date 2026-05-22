@@ -1,4 +1,4 @@
-<section class="py-6 px-4 md:px-6 lg:px-8">
+<section class="min-h-screen  py-6 px-4 md:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto">
         <div class="text-center mb-6">
             <h2 class="text-4xl md:text-5xl font-bold text-900 mb-3">Skills</h2>
@@ -7,8 +7,37 @@
             </p>
         </div>
 
-        <div class="flex flex-wrap gap-3 justify-content-center" *ngIf="skills$ | async as skills">
-            <p-tag *ngFor="let skill of skills" [value]="skill.title" severity="info" [rounded]="true"></p-tag>
+        <div
+            class="flex flex-row justify-content-center align-items-center grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl w-full">
+            <p-card styleClass="skill-card">
+                <ng-template pTemplate="title">
+                    <span class="text-xl font-semibold text-blue-400">Frontend </span>
+                </ng-template>
+                <div class="flex flex-wrap gap-2 mt-2">
+                    <p-tag *ngFor="let skill of skillsFrontend$ | async" [value]="skill.title" severity="info"
+                        [rounded]="true" [icon]="skill.icon"> </p-tag>
+                </div>
+            </p-card>
+            <p-card styleClass="skill-card">
+                <ng-template pTemplate="title">
+                    <span class="text-xl font-semibold text-blue-400">Backend & Databases</span>
+                </ng-template>
+                <div class="flex flex-wrap gap-2 mt-2">
+                    <p-tag *ngFor="let skill of skillsBackend$ | async" [value]="skill.title" severity="info"
+                        [rounded]="true" [icon]="skill.icon"></p-tag>
+                </div>
+            </p-card>
+
+
+            <p-card styleClass="skill-card">
+                <ng-template pTemplate="title">
+                    <span class="text-xl font-semibold text-blue-400">Architecture & Tools</span>
+                </ng-template>
+                <div class="flex flex-wrap gap-2 mt-2">
+                    <p-tag *ngFor="let skill of skillsTools$ | async" [value]="skill.title" severity="info"
+                        [rounded]="true" [icon]="skill.icon"></p-tag>
+                </div>
+            </p-card>
         </div>
     </div>
 </section>
